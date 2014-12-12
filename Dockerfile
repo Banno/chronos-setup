@@ -1,11 +1,14 @@
 FROM redjack/mesos
 
-RUN curl -sSfL http://downloads.mesosphere.io/chronos/chronos-2.1.0_mesos-0.14.0-rc4.tgz --output /chronos.tgz
+RUN apt-get update && apt-get install -y maven node npm
 
-RUN cd / && tar xzf /chronos.tgz
+ADD chronos /chronos
 
 WORKDIR /chronos
+
+RUN mvn clean package
 
 EXPOSE 8081
 
 ENTRYPOINT ["bin/start-chronos.bash"]
+ENTRYPOINT bin/start-chronos.bash
