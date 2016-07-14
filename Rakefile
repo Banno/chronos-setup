@@ -1,0 +1,14 @@
+image = "registry.banno-internal.com/chronos"
+version = "2.4.0"
+
+desc "Build the image"
+task :build do
+  sh "docker build -t #{image}:#{version} ."
+  sh "docker tag #{image}:#{version} #{image}:latest"
+end
+
+desc "Push the build docker image"
+task :push do
+  sh "docker push #{image}:#{version}"
+  sh "docker push #{image}:latest"
+end
