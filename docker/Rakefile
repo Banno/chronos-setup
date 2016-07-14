@@ -7,6 +7,11 @@ task :build do
   sh "docker tag #{image}:#{version} #{image}:latest"
 end
 
+desc "Build test image and run rspec tests"
+task :test do
+  sh "docker-compose run test"
+end
+
 desc "Push the build docker image"
 task :push do
   sh "docker push #{image}:#{version}"
