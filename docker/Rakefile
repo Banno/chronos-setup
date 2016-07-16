@@ -1,6 +1,12 @@
 image = "registry.banno-internal.com/chronos"
 version = "2.4.0"
 
+desc "Cleanup"
+task :clean do
+  sh "docker-compose kill"
+  sh "docker-compose rm --all --force"
+end
+
 desc "Build the image"
 task :build do
   sh "docker build -t #{image}:#{version} ."
@@ -8,8 +14,8 @@ task :build do
 end
 
 desc "Build test image and run rspec tests"
-task :test do
-  sh "docker-compose run test"
+task :test => :clean do
+  sh "docker-compose up --build test"
 end
 
 desc "Push the build docker image"

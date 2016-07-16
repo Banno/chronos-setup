@@ -1,1 +1,1 @@
-FROM registry.banno-internal.com/ruby-specs:2.1-onbuild
+FROM registry.banno-internal.com/ruby-specs:2.3-onbuild

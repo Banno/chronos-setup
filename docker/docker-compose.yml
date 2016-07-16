@@ -42,7 +42,7 @@ mesosagent:
     - zookeeper
 
 chronos:
-  image: mesosphere/chronos:latest
+  image: registry.banno-internal.com/chronos:latest
   environment:
     CHRONOS_HTTP_PORT: 8081
     CHRONOS_MASTER: zk://zookeeper:2181/mesos
@@ -53,7 +53,6 @@ chronos:
     - mesosmaster
     - mesosagent
     - zookeeper
-    - haproxy
 
 test:
   build: ./test
