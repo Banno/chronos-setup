@@ -1,5 +1,3 @@
-# Chronos
+# chronos-setup
 
-## Usage
-
-Just a wrapper around https://hub.docker.com/r/mesoscloud/chronos/
+Moved to https://github.com/Banno/infra-docker-images
